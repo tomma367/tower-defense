@@ -16,22 +16,23 @@ import org.lwjgl.opengl.DisplayMode;
 
 public class Artist {
 	
-	public static final int WIDTH = 600, HEIGHT = 400;
+	public static final int WIDTH = 1280, HEIGHT = 960;
 	
 	public static void BeginSession() {
 		
 		Display.setTitle("Sherry's Game");
 		try {
-			Display.setDisplayMode(new DisplayMode(600,400));
+			Display.setDisplayMode(new DisplayMode(WIDTH,HEIGHT));
 			Display.create();
 		} catch (LWJGLException e) {
 			e.printStackTrace();
 		}
 		
 		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		glOrtho(0, 600, 400, 0, 1, -1);
-		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity(); 
+		glOrtho(0, WIDTH, HEIGHT, 0, 1, -1); 
+		glMatrixMode(GL_MODELVIEW); 
+		glEnable(GL_TEXTURE_2D); 
 	}
 	
 	public static void DrawQuad(float x, float y, float width, float height) {
