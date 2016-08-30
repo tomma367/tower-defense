@@ -1,6 +1,7 @@
 package data;
 
-import static helpers.Artist.*;
+import static helpers.Artist.BeginSession;
+import static helpers.Artist.QuickLoad;
 
 import org.lwjgl.opengl.Display;
 
@@ -33,13 +34,13 @@ public class Boot {
 		TileGrid grid = new TileGrid(map);
 		grid.SetTile(3, 4, grid.GetTile(2, 4).getType());
 		Enemy e = new Enemy(QuickLoad("enemy64"), grid.GetTile(10, 10), 64, 64, 3);
+		Wave wave = new Wave(20, e);
 		
 		while(!Display.isCloseRequested()) {
 			Clock.update();
-			e.Update();
 			
 			grid.Draw();
-			e.Draw();
+			wave.Update();
 			
 			Display.update();
 			Display.sync(60);
