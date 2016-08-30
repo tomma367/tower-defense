@@ -29,10 +29,13 @@ public class Boot {
 		};
 		
 		TileGrid grid = new TileGrid(map);
+		grid.SetTile(3, 4, grid.GetTile(2, 4).getType());
+		Enemy e = new Enemy(QuickLoad("spaceship64"), grid.GetTile(10, 10), 64, 64, 2);
 		
 		while(!Display.isCloseRequested()) {
 			
 			grid.Draw();
+			e.Draw();
 			
 			Display.update();
 			Display.sync(60);
