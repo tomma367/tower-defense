@@ -33,7 +33,7 @@ public class Boot {
 		
 		TileGrid grid = new TileGrid(map);
 		grid.SetTile(3, 4, grid.GetTile(2, 4).getType());
-		Enemy e = new Enemy(QuickLoad("enemy64"), grid.GetTile(10, 10), 64, 64, 3);
+		Enemy e = new Enemy(QuickLoad("enemy64"), grid.GetTile(10, 10), grid, 64, 64, 3);
 		Wave wave = new Wave(20, e);
 		Player player = new Player(grid);
 		
